@@ -1,0 +1,156 @@
+{
+  "missions": [
+    {
+      "id": 1,
+      "title": "Chandrayaan-1",
+      "year": 2008,
+      "icon": "🌕",
+      "description": "India's first lunar probe that discovered water molecules on the Moon's surface, making ISRO the fourth space agency to reach the Moon.",
+      "status": "Completed",
+      "statusColor": "success",
+      "link": "https://www.isro.gov.in/Chandrayaan1.html"
+    },
+    {
+      "id": 2,
+      "title": "Mars Orbiter Mission (Mangalyaan)",
+      "year": 2013,
+      "icon": "🔴",
+      "description": "India's first interplanetary mission. ISRO became the first Asian agency and fourth in the world to reach Mars orbit — on the very first attempt.",
+      "status": "Completed",
+      "statusColor": "success",
+      "link": "https://www.isro.gov.in/mars-orbiter-mission"
+    },
+    {
+      "id": 3,
+      "title": "Chandrayaan-2",
+      "year": 2019,
+      "icon": "🛸",
+      "description": "India's second lunar mission with orbiter, lander, and rover. The orbiter remains operational, mapping the Moon's surface with unprecedented detail.",
+      "status": "Active",
+      "statusColor": "active",
+      "link": "https://www.isro.gov.in/chandrayaan2-home-0"
+    },
+    {
+      "id": 4,
+      "title": "PSLV-C37 — 104 Satellites",
+      "year": 2017,
+      "icon": "🛰️",
+      "description": "Set a world record by launching 104 satellites in a single mission, surpassing Russia's 2014 record of 37. 101 of them were foreign nano-satellites.",
+      "status": "Completed",
+      "statusColor": "success",
+      "link": "https://www.isro.gov.in/PSLVC37.html"
+    },
+    {
+      "id": 5,
+      "title": "Aditya-L1",
+      "year": 2023,
+      "icon": "☀️",
+      "description": "India's first dedicated solar observatory, positioned at the Sun-Earth Lagrange Point 1, studying solar corona, solar wind, and space weather in real time.",
+      "status": "Active",
+      "statusColor": "active",
+      "link": "https://www.isro.gov.in/Aditya_L1.html"
+    },
+    {
+      "id": 6,
+      "title": "Gaganyaan",
+      "year": 2024,
+      "icon": "👨‍🚀",
+      "description": "India's maiden human spaceflight programme aiming to send a 3-member crew to a 400 km orbit for 3 days, establishing India as the fourth nation with independent human spaceflight capability.",
+      "status": "In Progress",
+      "statusColor": "progress",
+      "link": "https://www.isro.gov.in/Gaganyaan.html"
+    }
+  ],
+  "photos": [
+    {
+      "id": 1,
+      "title": "Moon's South Polar Region",
+      "description": "High-resolution image of the Moon's south polar region captured by Chandrayaan-2's orbiter camera, revealing ancient craters and potential water-ice deposits.",
+      "imageUrl": "https://images.unsplash.com/photo-1614642264762-d0a3b8bf3700?w=800&q=80",
+      "category": "Lunar"
+    },
+    {
+      "id": 2,
+      "title": "Mars — Valles Marineris",
+      "description": "A composite of the Martian surface captured by Mangalyaan's Mars Color Camera (MCC), showing the grand Valles Marineris canyon system.",
+      "imageUrl": "https://images.unsplash.com/photo-1545156521-77bd85671d30?w=800&q=80",
+      "category": "Mars"
+    },
+    {
+      "id": 3,
+      "title": "PSLV-C37 Lift-off",
+      "description": "The historic PSLV-C37 rocket lifts off from the Satish Dhawan Space Centre, carrying 104 satellites into orbit in a single mission.",
+      "imageUrl": "frontend/photos/PSLV.jpg",
+      "category": "Launch"
+    },
+    {
+      "id": 4,
+      "title": "Earth from 36,000 km",
+      "description": "India's blue marble — a stunning view of the subcontinent captured by ISRO's INSAT-3D meteorological satellite from geostationary orbit.",
+      "imageUrl": "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800&q=80",
+      "category": "Earth"
+    },
+    {
+      "id": 5,
+      "title": "Aditya-L1 Solar Disc",
+      "description": "India's first full-disk image of the Sun in multiple wavelengths captured by the SUIT instrument aboard Aditya-L1, revealing dynamic solar activity.",
+      "imageUrl": "https://images.unsplash.com/photo-1506443432602-ac2fcd6f54e0?w=800&q=80",
+      "category": "Solar"
+    },
+    {
+      "id": 6,
+      "title": "Chandrayaan-3 Landing Site",
+      "description": "Vikram lander's touchdown point near the Moon's south pole — Shiv Shakti Point — marking India's historic soft-landing on lunar soil.",
+      "imageUrl": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=800&q=80",
+      "category": "Lunar"
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "title": "Chandrayaan-3: Moon Landing Live",
+      "description": "Watch the live broadcast of Vikram lander's historic touchdown on the Moon's south pole — making India the first nation to land near the lunar south pole.",
+      "thumbnail": "https://images.unsplash.com/photo-1614642264762-d0a3b8bf3700?w=800&q=80",
+      "duration": "1:24:38",
+      "views": "45.2M",
+      "youtubeId": "DLA_64yz8Ss",
+      "category": "Live Event"
+    },
+    {
+      "id": 2,
+      "title": "Mangalyaan: Journey to Mars",
+      "description": "The complete story of India's Mars Orbiter Mission — from launch at SDSC to Mars Orbit Insertion — a 300-day journey covering 680 million kilometres.",
+      "thumbnail": "https://img.youtube.com/vi/XMsM9gyWdBI/maxresdefault.jpg",
+      "duration": "28:45",
+      "views": "12.7M",
+      "youtubeId": "XMsM9gyWdBI",
+      "category": "Documentary"
+    },
+    {
+      "id": 3,
+      "title": "PSLV-C37: Record 104 Satellites",
+      "description": "Relive the moment ISRO shattered the world record — launching 104 satellites in a single rocket, demonstrating India's unmatched launch precision.",
+      "thumbnail": "https://img.youtube.com/vi/c0BpjPUT5FE/maxresdefault.jpg",
+      "duration": "42:17",
+      "views": "8.9M",
+      "youtubeId": "c0BpjPUT5FE",
+      "category": "Launch"
+    },
+    {
+      "id": 4,
+      "title": "Gaganyaan: India's Human Spaceflight",
+      "description": "An in-depth look at India's ambitious human spaceflight programme — the crew training, the human-rated GSLV Mk III, and the mission's vision to put Indians in space.",
+      "thumbnail": "https://img.youtube.com/vi/E1RdIGOh2fA/maxresdefault.jpg",
+      "duration": "35:50",
+      "views": "6.4M",
+      "youtubeId": "E1RdIGOh2fA",
+      "category": "Mission Profile"
+    }
+  ],
+  "stats": {
+    "missions": 125,
+    "satellites": 431,
+    "countries": 34,
+    "yearsActive": 58
+  }
+}

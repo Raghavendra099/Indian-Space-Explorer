@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Admin dashboard for Indian Space Explorer" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Admin Dashboard — Indian Space Explorer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Indian Space Explorer home">
+        <span class="logo-icon">🚀</span>
+        <span class="logo-text">IndiaSpace</span>
+      </a>
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="missions.html" class="nav-link">Missions</a></li>
+        <li><a href="photos.html" class="nav-link">Photos</a></li>
+        <li><a href="videos.html" class="nav-link">Videos</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="login.html" class="nav-link auth-link">Login</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="admin-page">
+    <section class="admin-hero">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Admin Control Center</p>
+          <h1 class="section-title">Manage Missions, Photos & Videos</h1>
+          <p class="section-desc">Only users with admin access can view and modify content from here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container admin-actions">
+      <div class="admin-grid">
+        <div class="admin-card">
+          <h2>Quick Actions</h2>
+          <p>Use the buttons below to switch between content collections.</p>
+          <div class="admin-toolbar">
+            <button id="showMissionsBtn" class="btn btn-secondary">Manage Missions</button>
+            <button id="showPhotosBtn" class="btn btn-secondary">Manage Photos</button>
+            <button id="showVideosBtn" class="btn btn-secondary">Manage Videos</button>
+          </div>
+          <div class="admin-note" id="adminRoleBadge"></div>
+        </div>
+
+        <div class="admin-card admin-panel-card">
+          <div id="adminCollectionHeader" class="admin-collection-header">
+            <div>
+              <h2 id="adminCollectionTitle">Missions</h2>
+              <p id="adminCollectionSubtitle">Create, update, and delete mission items.</p>
+            </div>
+            <button id="newItemBtn" class="btn btn-primary">New Mission</button>
+          </div>
+
+          <div id="adminError" class="error-box" role="alert" style="display:none;"></div>
+          <div id="adminSuccess" class="success-box" role="status" style="display:none;"></div>
+
+          <div id="adminList" class="admin-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container admin-form-section hidden" id="adminFormSection">
+      <div class="admin-form-card admin-card">
+        <button id="closeFormBtn" class="btn btn-ghost">Back to list</button>
+        <h2 id="adminFormTitle">Create Mission</h2>
+        <form id="adminForm" class="admin-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="itemTitle">Title *</label>
+              <input type="text" id="itemTitle" required />
+            </div>
+            <div class="form-group">
+              <label for="itemYear">Year</label>
+              <input type="number" id="itemYear" min="1900" max="2100" />
+            </div>
+            <div class="form-group">
+              <label for="itemIcon">Icon</label>
+              <input type="text" id="itemIcon" placeholder="e.g. 🚀" />
+            </div>
+            <div class="form-group">
+              <label for="itemStatus">Status</label>
+              <input type="text" id="itemStatus" placeholder="e.g. Completed" />
+            </div>
+            <div class="form-group">
+              <label for="itemStatusColor">Status Color</label>
+              <input type="text" id="itemStatusColor" placeholder="success / warning / danger" />
+            </div>
+            <div class="form-group">
+              <label for="itemLink">Link</label>
+              <input type="url" id="itemLink" placeholder="https://..." />
+            </div>
+            <div class="form-group full-width">
+              <label for="itemDescription">Description</label>
+              <textarea id="itemDescription" rows="4"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Save Item</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-logo" href="../index.html">
+            <span class="logo-icon">🚀</span>
+            <span class="logo-text">IndiaSpace</span>
+          </a>
+          <p class="footer-tagline">Celebrating India's journey among the stars.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script>
+    const adminPages = {
+      missions: {
+        title: 'Missions',
+        subtitle: 'Create, update, and delete mission items.',
+        endpoint: '/missions',
+        fields: ['title', 'year', 'icon', 'status', 'statusColor', 'link', 'description'],
+      },
+      photos: {
+        title: 'Photos',
+        subtitle: 'Manage photos displayed across the gallery.',
+        endpoint: '/photos',
+        fields: ['title', 'imageUrl', 'description', 'category'],
+      },
+      videos: {
+        title: 'Videos',
+        subtitle: 'Manage embedded video content.',
+        endpoint: '/videos',
+        fields: ['title', 'thumbnail', 'duration', 'views', 'youtubeId', 'description', 'category'],
+      },
+    };
+
+    let activeCollection = 'missions';
+    let editingItem = null;
+
+    const adminRoleBadge = document.getElementById('adminRoleBadge');
+    const adminCollectionTitle = document.getElementById('adminCollectionTitle');
+    const adminCollectionSubtitle = document.getElementById('adminCollectionSubtitle');
+    const adminList = document.getElementById('adminList');
+    const adminFormSection = document.getElementById('adminFormSection');
+    const adminFormTitle = document.getElementById('adminFormTitle');
+    const adminForm = document.getElementById('adminForm');
+    const newItemBtn = document.getElementById('newItemBtn');
+    const closeFormBtn = document.getElementById('closeFormBtn');
+    const adminError = document.getElementById('adminError');
+    const adminSuccess = document.getElementById('adminSuccess');
+
+    const setAdminStatus = () => {
+      const user = window.AuthHelper?.getUser();
+      if (!user || user.role !== 'admin') {
+        window.location.href = 'login.html';
+        return;
+      }
+      adminRoleBadge.textContent = `Signed in as admin: ${user.email}`;
+      adminRoleBadge.style.display = 'block';
+    };
+
+    const setCollection = (collectionKey) => {
+      activeCollection = collectionKey;
+      const config = adminPages[collectionKey];
+      adminCollectionTitle.textContent = config.title;
+      adminCollectionSubtitle.textContent = config.subtitle;
+      adminFormTitle.textContent = `Create ${config.title.slice(0, -1)}`;
+      adminFormSection.classList.add('hidden');
+      editingItem = null;
+      loadItems();
+    };
+
+    const showError = (message) => {
+      adminSuccess.style.display = 'none';
+      adminError.textContent = message;
+      adminError.style.display = 'block';
+    };
+
+    const showSuccess = (message) => {
+      adminError.style.display = 'none';
+      adminSuccess.textContent = message;
+      adminSuccess.style.display = 'block';
+    };
+
+    const clearMessages = () => {
+      adminError.style.display = 'none';
+      adminSuccess.style.display = 'none';
+    };
+
+    const getFieldValues = () => {
+      const values = {};
+      adminPages[activeCollection].fields.forEach((field) => {
+        const el = document.getElementById(`item${field.charAt(0).toUpperCase() + field.slice(1)}`);
+        if (el) values[field] = el.value.trim();
+      });
+      return values;
+    };
+
+    const setFieldValues = (data = {}) => {
+      adminPages[activeCollection].fields.forEach((field) => {
+        const el = document.getElementById(`item${field.charAt(0).toUpperCase() + field.slice(1)}`);
+        if (el) el.value = data[field] || '';
+      });
+    };
+
+    const renderItemCard = (item) => {
+      const card = document.createElement('article');
+      card.className = 'admin-item-card';
+      card.innerHTML = `
+        <div class="card-body">
+          <h3>${item.title || item.email || 'Untitled'}</h3>
+          <p>${item.description || item.category || item.status || ''}</p>
+        </div>
+        <div class="card-actions">
+          <button class="btn btn-secondary edit-btn">Edit</button>
+          <button class="btn btn-danger delete-btn">Delete</button>
+        </div>
+      `;
+      card.querySelector('.edit-btn').addEventListener('click', () => handleEdit(item));
+      card.querySelector('.delete-btn').addEventListener('click', () => handleDelete(item));
+      return card;
+    };
+
+    const loadItems = async () => {
+      clearMessages();
+      adminList.innerHTML = '<p>Loading...</p>';
+      try {
+        const response = await fetch(`/api${adminPages[activeCollection].endpoint}`);
+        const result = await response.json();
+        if (!result.success) {
+          throw new Error(result.message || 'Failed to load items');
+        }
+        const items = result.data || [];
+        adminList.innerHTML = items.length ? '' : '<p>No items found.</p>';
+        items.forEach((item) => adminList.appendChild(renderItemCard(item)));
+      } catch (error) {
+        adminList.innerHTML = '<p style="color:#ef4444;">Unable to fetch items.</p>';
+        showError(error.message);
+      }
+    };
+
+    const handleEdit = (item) => {
+      editingItem = item;
+      setFieldValues(item);
+      adminFormTitle.textContent = `Edit ${adminPages[activeCollection].title.slice(0, -1)}`;
+      adminFormSection.classList.remove('hidden');
+      adminForm.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const handleDelete = async (item) => {
+      if (!confirm('Delete this item? This cannot be undone.')) return;
+      clearMessages();
+      try {
+        const response = await fetch(`/api${adminPages[activeCollection].endpoint}/${item._id}`, {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${window.SpaceAPI.getToken()}` },
+        });
+        const result = await response.json();
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || 'Delete failed');
+        }
+        showSuccess('Item deleted successfully.');
+        loadItems();
+      } catch (error) {
+        showError(error.message);
+      }
+    };
+
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+      clearMessages();
+      const payload = getFieldValues();
+      const method = editingItem ? 'PUT' : 'POST';
+      const endpoint = editingItem ? `/api${adminPages[activeCollection].endpoint}/${editingItem._id}` : `/api${adminPages[activeCollection].endpoint}`;
+      try {
+        const response = await fetch(endpoint, {
+          method,
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${window.SpaceAPI.getToken()}` },
+          body: JSON.stringify(payload),
+        });
+        const result = await response.json();
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || 'Save failed');
+        }
+        showSuccess(`Item ${editingItem ? 'updated' : 'created'} successfully.`);
+        adminFormSection.classList.add('hidden');
+        adminForm.reset();
+        editingItem = null;
+        loadItems();
+      } catch (error) {
+        showError(error.message);
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!window.AuthHelper?.isLoggedIn()) {
+        window.location.href = 'login.html';
+        return;
+      }
+      setAdminStatus();
+      setCollection('missions');
+
+      document.getElementById('showMissionsBtn').addEventListener('click', () => setCollection('missions'));
+      document.getElementById('showPhotosBtn').addEventListener('click', () => setCollection('photos'));
+      document.getElementById('showVideosBtn').addEventListener('click', () => setCollection('videos'));
+      newItemBtn.addEventListener('click', () => {
+        editingItem = null;
+        setFieldValues({});
+        adminFormTitle.textContent = `Create ${adminPages[activeCollection].title.slice(0, -1)}`;
+        adminFormSection.classList.remove('hidden');
+      });
+      closeFormBtn.addEventListener('click', () => {
+        adminFormSection.classList.add('hidden');
+      });
+      adminForm.addEventListener('submit', handleSubmit);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore India's journey through space — ISRO missions, photography, and landmark achievements from the stars." />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Indian Space Explorer — ISRO Missions & Beyond</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════ LOADING SCREEN ══ -->
+  <div id="loading-screen">
+    <div class="loader-rocket">🚀</div>
+    <div class="loader-text">INITIALIZING MISSION CONTROL</div>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+    <div class="loader-sub">भारत अंतरिक्ष अन्वेषण</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ NAVBAR ══ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a class="nav-logo" href="#hero" aria-label="Indian Space Explorer home">
+        <span class="logo-icon">🚀</span>
+        <span class="logo-text">IndiaSpace</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="pages/missions.html" class="nav-link">Missions</a></li>
+        <li><a href="pages/photos.html" class="nav-link">Photos</a></li>
+        <li><a href="pages/videos.html" class="nav-link">Videos</a></li>
+        <li><a href="pages/about.html" class="nav-link">About</a></li>
+        <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
+        <li><a href="pages/login.html" class="nav-link auth-link">Login</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════ HERO ═══ -->
+  <section class="hero" id="hero" aria-label="Hero section">
+    <div class="stars" aria-hidden="true" id="starsContainer"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Indian Space Research Organisation</p>
+      <h1 class="hero-title">
+        India's <span class="gradient-text">Journey</span><br />
+        Among the Stars
+      </h1>
+      <p class="hero-subtitle">
+        From the Moon's south pole to Mars orbit — explore the missions,
+        discoveries, and bold ambitions that have made India a spacefaring nation.
+      </p>
+      <div class="hero-cta">
+        <a href="pages/missions.html" class="btn btn-primary">Explore Missions</a>
+        <a href="pages/about.html" class="btn btn-ghost">About ISRO</a>
+      </div>
+    </div>
+
+    <!-- Animated Stats -->
+    <div class="hero-stats" id="heroStats" aria-label="ISRO statistics">
+      <div class="stat-item">
+        <span class="stat-number" data-target="125" id="statMissions">0</span>
+        <span class="stat-label">Missions</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="431" id="statSatellites">0</span>
+        <span class="stat-label">Satellites Launched</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="34" id="statCountries">0</span>
+        <span class="stat-label">Countries Served</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="58" id="statYears">0</span>
+        <span class="stat-label">Years of Excellence</span>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ LAUNCH PAD ════ -->
+  <section id="launch" class="section section-dark" aria-labelledby="launch-heading">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">MISSION CONTROL</span>
+        <h2 class="section-title" id="launch-heading">Rocket <span class="accent">Launch</span></h2>
+        <p class="section-desc">Experience the thrill of an ISRO PSLV liftoff with countdown, smoke, and ignition.</p>
+      </div>
+
+      <div class="launch-arena">
+        <div class="launch-bg-grid" aria-hidden="true"></div>
+
+        <div class="launch-scene" id="launch-scene" aria-label="Rocket launch simulation">
+          <div class="launch-sky">
+            <div class="launch-stars" id="launch-stars"></div>
+          </div>
+
+          <div class="rocket-assembly" id="rocket-assembly">
+            <div class="rocket-body" id="launch-rocket">
+              <div class="rocket-nose">▲</div>
+              <div class="rocket-fin-l"></div>
+              <div class="rocket-fin-r"></div>
+              <div class="rocket-exhaust" id="rocket-exhaust">
+                <div class="exhaust-flame f1"></div>
+                <div class="exhaust-flame f2"></div>
+                <div class="exhaust-flame f3"></div>
+              </div>
+            </div>
+
+            <div class="launch-pad" aria-hidden="true">
+              <div class="pad-arm pad-arm-l"></div>
+              <div class="pad-base"></div>
+              <div class="pad-arm pad-arm-r"></div>
+            </div>
+
+            <div class="smoke-cloud" id="smoke-cloud" aria-hidden="true">
+              <div class="smoke s1"></div>
+              <div class="smoke s2"></div>
+              <div class="smoke s3"></div>
+              <div class="smoke s4"></div>
+              <div class="smoke s5"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="launch-controls fade-in">
+          <div class="countdown-display">
+            <div class="countdown-label">T-MINUS</div>
+            <div class="countdown-number" id="countdown-num">10</div>
+            <div class="countdown-label">SECONDS</div>
+          </div>
+
+          <div class="launch-status" id="launch-status">SYSTEMS NOMINAL</div>
+
+          <div class="launch-btns">
+            <button class="btn btn-launch" id="btn-launch" type="button" onclick="window.location.href='/pages/missions.html';">
+              <span class="btn-launch-icon">🚀</span>
+              INITIATE LAUNCH SEQUENCE
+            </button>
+            <button class="btn btn-reset" id="btn-reset" type="button" style="display:none">
+              ↺ RESET
+            </button>
+          </div>
+
+          <div class="launch-checklist">
+            <div class="check-item" id="chk-fuel"><span class="chk-icon">⬜</span> Fuel: Ready</div>
+            <div class="check-item" id="chk-nav"><span class="chk-icon">⬜</span> Navigation: Online</div>
+            <div class="check-item" id="chk-comms"><span class="chk-icon">⬜</span> Comms: Clear</div>
+            <div class="check-item" id="chk-go"><span class="chk-icon">⬜</span> All Systems: GO</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ HISTORIC MISSIONS ════ -->
+  <section id="missions" class="section" aria-labelledby="missions-heading">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">ISRO ACHIEVEMENTS</span>
+        <h2 class="section-title" id="missions-heading">Historic <span class="accent">Missions</span></h2>
+        <p class="section-desc">Milestones that redefined India's place in the cosmos.</p>
+      </div>
+      <div class="missions-grid">
+        <div class="mission-card fade-in">
+          <div class="card-glow"></div>
+          <div class="card-orbit-ring"></div>
+          <div class="card-img">🌙</div>
+          <span class="card-year">2008</span>
+          <h3 class="card-title">Chandrayaan-1</h3>
+          <p class="card-desc">India's first lunar probe, discovering water molecules on the Moon.</p>
+          <div class="card-badges">
+            <span class="badge badge-success">SUCCESS</span>
+            <span class="badge">LUNAR</span>
+          </div>
+        </div>
+        <div class="mission-card fade-in">
+          <div class="card-glow"></div>
+          <div class="card-orbit-ring"></div>
+          <div class="card-img">🌕</div>
+          <span class="card-year">2023</span>
+          <h3 class="card-title">Chandrayaan-3</h3>
+          <p class="card-desc">Historic soft landing near the lunar south pole — a world first.</p>
+          <div class="card-badges">
+            <span class="badge badge-success">SUCCESS</span>
+            <span class="badge badge-hot">LANDMARK</span>
+          </div>
+        </div>
+        <div class="mission-card fade-in">
+          <div class="card-glow"></div>
+          <div class="card-orbit-ring"></div>
+          <div class="card-img">🔴</div>
+          <span class="card-year">2013</span>
+          <h3 class="card-title">Mangalyaan</h3>
+          <p class="card-desc">Mars Orbiter Mission — Asia's first interplanetary mission, first try.</p>
+          <div class="card-badges">
+            <span class="badge badge-success">SUCCESS</span>
+            <span class="badge">MARS</span>
+          </div>
+        </div>
+        <div class="mission-card fade-in">
+          <div class="card-glow"></div>
+          <div class="card-orbit-ring"></div>
+          <div class="card-img">☀️</div>
+          <span class="card-year">2023</span>
+          <h3 class="card-title">Aditya-L1</h3>
+          <p class="card-desc">India's first dedicated solar observatory, studying the Sun from L1.</p>
+          <div class="card-badges">
+            <span class="badge badge-success">ACTIVE</span>
+            <span class="badge">SOLAR</span>
+          </div>
+        </div>
+        <div class="mission-card fade-in">
+          <div class="card-glow"></div>
+          <div class="card-orbit-ring"></div>
+          <div class="card-img">👨‍🚀</div>
+          <span class="card-year">2025+</span>
+          <h3 class="card-title">Gaganyaan</h3>
+          <p class="card-desc">India's first crewed space mission will send Vyomanauts to orbit.</p>
+          <div class="card-badges">
+            <span class="badge badge-pending">UPCOMING</span>
+            <span class="badge">CREWED</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ ASTRONAUTS ════ -->
+  <section id="astronauts" class="section" aria-labelledby="astronauts-heading">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">SPACE HEROES</span>
+        <h2 class="section-title" id="astronauts-heading">Indian <span class="accent">Astronauts</span></h2>
+        <p class="section-desc">The brave hearts who ventured beyond our atmosphere.</p>
+      </div>
+      <div class="astronauts-grid">
+        <div class="astro-card fade-in">
+          <div class="astro-glow"></div>
+          <div class="astro-avatar">👨‍🚀</div>
+          <div class="astro-orbit"></div>
+          <div class="astro-info">
+            <h3>Rakesh Sharma</h3>
+            <p class="astro-role">IAF Wing Commander</p>
+            <p class="astro-year">Soyuz T-11 · 1984</p>
+            <div class="astro-quote">"Saare Jahan Se Achha"</div>
+          </div>
+          <div class="astro-badge">INDIA'S FIRST ASTRONAUT</div>
+        </div>
+        <div class="astro-card fade-in">
+          <div class="astro-glow"></div>
+          <div class="astro-avatar">👩‍🚀</div>
+          <div class="astro-orbit"></div>
+          <div class="astro-info">
+            <h3>Kalpana Chawla</h3>
+            <p class="astro-role">NASA Astronaut</p>
+            <p class="astro-year">STS-107 · 2003</p>
+            <div class="astro-quote">"The path from dreams to success exists."</div>
+          </div>
+          <div class="astro-badge astro-badge-gold">PIONEER</div>
+        </div>
+        <div class="astro-card fade-in">
+          <div class="astro-glow"></div>
+          <div class="astro-avatar">👩‍🚀</div>
+          <div class="astro-orbit"></div>
+          <div class="astro-info">
+            <h3>Sunita Williams</h3>
+            <p class="astro-role">NASA Astronaut / USN</p>
+            <p class="astro-year">ISS Expeditions · 2006–</p>
+            <div class="astro-quote">"Space is for everyone."</div>
+          </div>
+          <div class="astro-badge astro-badge-blue">RECORD HOLDER</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ TIMELINE ════ -->
+  <section id="timeline" class="section section-dark" aria-labelledby="timeline-heading">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">SPACE ODYSSEY</span>
+        <h2 class="section-title" id="timeline-heading">ISRO <span class="accent">Timeline</span></h2>
+        <p class="section-desc">Six decades of reaching for the stars.</p>
+      </div>
+      <div class="timeline-wrap">
+        <div class="timeline-line" aria-hidden="true"></div>
+        <div class="timeline-item tl-left fade-in">
+          <div class="tl-dot"><span>🛰</span></div>
+          <div class="tl-card">
+            <span class="tl-year">1975</span>
+            <h4>Aryabhata Satellite</h4>
+            <p>India's first satellite, named after the ancient mathematician, launched by a Soviet rocket.</p>
+          </div>
+        </div>
+        <div class="timeline-item tl-right fade-in">
+          <div class="tl-dot"><span>🚀</span></div>
+          <div class="tl-card">
+            <span class="tl-year">1980</span>
+            <h4>SLV-3 — Rohini Launch</h4>
+            <p>India joins the elite club of nations capable of launching satellites with its own rocket.</p>
+          </div>
+        </div>
+        <div class="timeline-item tl-left fade-in">
+          <div class="tl-dot"><span>🌙</span></div>
+          <div class="tl-card">
+            <span class="tl-year">2008</span>
+            <h4>Chandrayaan-1</h4>
+            <p>Discovered water molecules on the Moon's surface — a watershed moment in lunar science.</p>
+          </div>
+        </div>
+        <div class="timeline-item tl-right fade-in">
+          <div class="tl-dot"><span>🔴</span></div>
+          <div class="tl-card">
+            <span class="tl-year">2013</span>
+            <h4>Mars Orbiter Mission</h4>
+            <p>First Asian nation to reach Martian orbit. Mission cost less than the Hollywood film "Gravity."</p>
+          </div>
+        </div>
+        <div class="timeline-item tl-left fade-in">
+          <div class="tl-dot"><span>🌕</span></div>
+          <div class="tl-card">
+            <span class="tl-year">2023</span>
+            <h4>Chandrayaan-3 Landing</h4>
+            <p>Vikram lander achieves first-ever soft landing near the lunar south pole. Pragyan rover deploys.</p>
+          </div>
+        </div>
+        <div class="timeline-item tl-right fade-in">
+          <div class="tl-dot"><span>☀️</span></div>
+          <div class="tl-card">
+            <span class="tl-year">2023</span>
+            <h4>Aditya-L1</h4>
+            <p>India's first dedicated solar mission, studying the Sun from the L1 Lagrange point.</p>
+          </div>
+        </div>
+        <div class="timeline-item tl-left fade-in">
+          <div class="tl-dot"><span>👨‍🚀</span></div>
+          <div class="tl-card tl-future">
+            <span class="tl-year">2025+</span>
+            <h4>Gaganyaan</h4>
+            <p>India's first crewed space mission will send Vyomanauts to low Earth orbit.</p>
+            <span class="tl-future-tag">UPCOMING</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ QUIZ ════ -->
+  <section id="quiz" class="section" aria-labelledby="quiz-heading">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">SPACE CHALLENGE</span>
+        <h2 class="section-title" id="quiz-heading">Space <span class="accent">Quiz</span></h2>
+        <p class="section-desc">Test your cosmic knowledge about ISRO and beyond.</p>
+      </div>
+      <div class="quiz-arena fade-in">
+        <div class="quiz-header-bar">
+          <div class="quiz-score-box">Score: <span id="quiz-score">0</span></div>
+          <div class="quiz-timer-box">⏱ <span id="quiz-timer">30</span>s</div>
+          <div class="quiz-progress-box">Q <span id="quiz-qnum">1</span>/10</div>
+        </div>
+        <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-progress-fill"></div></div>
+        <div id="quiz-container">
+          <div class="quiz-question" id="quiz-question">Press Start to begin the quiz!</div>
+          <div class="quiz-options" id="quiz-options"></div>
+          <div class="quiz-feedback" id="quiz-feedback"></div>
+        </div>
+        <div class="quiz-btns">
+          <button class="btn btn-primary" id="btn-quiz-start" type="button" onclick="startQuiz()">🚀 Start Quiz</button>
+          <button class="btn btn-ghost" id="btn-quiz-next" type="button" onclick="nextQuestion()" style="display:none">Next →</button>
+          <button class="btn btn-ghost" id="btn-quiz-restart" type="button" onclick="startQuiz()" style="display:none">↺ Play Again</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ FOOTER ════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-logo" href="#hero">
+            <span class="logo-icon">🚀</span>
+            <span class="logo-text">IndiaSpace</span>
+          </a>
+          <p class="footer-tagline">
+            Celebrating India's journey among the stars. An unofficial tribute to ISRO
+            and the scientists who made it possible.
+          </p>
+          <div class="social-links" aria-label="Social media links">
+            <a href="https://twitter.com/isro" target="_blank" rel="noopener" aria-label="ISRO on Twitter" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.youtube.com/@ISROofficial" target="_blank" rel="noopener" aria-label="ISRO on YouTube" class="social-link"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.facebook.com/ISRO.in/" target="_blank" rel="noopener" aria-label="ISRO on Facebook" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/isro.dos/" target="_blank" rel="noopener" aria-label="ISRO on Instagram" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul role="list">
+            <li><a href="pages/missions.html">Missions</a></li>
+            <li><a href="pages/photos.html">Photos</a></li>
+            <li><a href="pages/videos.html">Videos</a></li>
+            <li><a href="pages/about.html">About ISRO</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h3 class="footer-heading">Key Missions</h3>
+          <ul role="list">
+            <li><a href="https://www.isro.gov.in/Chandrayaan1.html" target="_blank" rel="noopener">Chandrayaan-1</a></li>
+            <li><a href="https://www.isro.gov.in/mars-orbiter-mission" target="_blank" rel="noopener">Mangalyaan</a></li>
+            <li><a href="https://www.isro.gov.in/chandrayaan2-home-0" target="_blank" rel="noopener">Chandrayaan-2</a></li>
+            <li><a href="https://www.isro.gov.in/Aditya_L1.html" target="_blank" rel="noopener">Aditya-L1</a></li>
+            <li><a href="https://www.isro.gov.in/Gaganyaan.html" target="_blank" rel="noopener">Gaganyaan</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h3 class="footer-heading">Resources</h3>
+          <ul role="list">
+            <li><a href="https://www.isro.gov.in" target="_blank" rel="noopener">ISRO Official</a></li>
+            <li><a href="https://www.isro.gov.in/gallery" target="_blank" rel="noopener">ISRO Gallery</a></li>
+            <li><a href="https://www.youtube.com/@ISROofficial" target="_blank" rel="noopener">ISRO YouTube</a></li>
+            <li><a href="https://www.isro.gov.in/ISRO_Highlights.html" target="_blank" rel="noopener">Highlights</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 Indian Space Explorer. An unofficial tribute to ISRO. All mission data sourced from <a href="https://www.isro.gov.in" target="_blank" rel="noopener">isro.gov.in</a>.</p>
+        <p class="footer-made">Made with ❤️ for India's space scientists</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true">
+    <span class="toast-icon" id="toastIcon"></span>
+    <span class="toast-message" id="toastMessage"></span>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

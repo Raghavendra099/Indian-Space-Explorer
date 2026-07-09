@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact ISRO - Get in touch with questions and collaborations." />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Contact — Indian Space Explorer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════ NAVBAR ══ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Indian Space Explorer home">
+        <span class="logo-icon">🚀</span>
+        <span class="logo-text">IndiaSpace</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="missions.html" class="nav-link">Missions</a></li>
+        <li><a href="photos.html" class="nav-link">Photos</a></li>
+        <li><a href="videos.html" class="nav-link">Videos</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        <li><a href="login.html" class="nav-link auth-link">Login</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════ CONTACT ════ -->
+  <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Get in Touch</p>
+        <h2 class="section-title" id="contact-heading">Contact Us</h2>
+        <p class="section-desc">
+          Questions, collaborations, or just want to talk about space?
+          We'd love to hear from you.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon-wrap"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
+            <div>
+              <strong>ISRO Headquarters</strong>
+              <span>Antariksh Bhavan, New BEL Road, Bangalore — 560 094</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon-wrap"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
+            <div>
+              <strong>Official Website</strong>
+              <span><a href="https://www.isro.gov.in" target="_blank" rel="noopener">www.isro.gov.in</a></span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon-wrap"><i class="fa-brands fa-youtube" aria-hidden="true"></i></div>
+            <div>
+              <strong>YouTube</strong>
+              <span><a href="https://www.youtube.com/@ISROofficial" target="_blank" rel="noopener">@ISROofficial</a></span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon-wrap"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></div>
+            <div>
+              <strong>Twitter / X</strong>
+              <span><a href="https://twitter.com/isro" target="_blank" rel="noopener">@isro</a></span>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate aria-label="Contact form">
+          <div class="form-group">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required autocomplete="name" />
+            <span class="form-error" id="nameError" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required autocomplete="email" />
+            <span class="form-error" id="emailError" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" id="subject" name="subject" class="form-input" placeholder="What is this about?" required />
+            <span class="form-error" id="subjectError" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" name="message" class="form-input form-textarea" placeholder="Tell us what's on your mind..." required rows="5"></textarea>
+            <span class="form-error" id="messageError" role="alert"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+            <span class="btn-text">Send Message</span>
+            <span class="btn-loader" aria-hidden="true"></span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ FOOTER ════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-logo" href="../index.html">
+            <span class="logo-icon">🚀</span>
+            <span class="logo-text">IndiaSpace</span>
+          </a>
+          <p class="footer-tagline">
+            Celebrating India's journey among the stars. An unofficial tribute to ISRO
+            and the scientists who made it possible.
+          </p>
+          <div class="social-links" aria-label="Social media links">
+            <a href="https://twitter.com/isro" target="_blank" rel="noopener" aria-label="ISRO on Twitter" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.youtube.com/@ISROofficial" target="_blank" rel="noopener" aria-label="ISRO on YouTube" class="social-link"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.facebook.com/ISRO.in/" target="_blank" rel="noopener" aria-label="ISRO on Facebook" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/isro.dos/" target="_blank" rel="noopener" aria-label="ISRO on Instagram" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul role="list">
+            <li><a href="missions.html">Missions</a></li>
+            <li><a href="photos.html">Photos</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="about.html">About ISRO</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h3 class="footer-heading">Key Missions</h3>
+          <ul role="list">
+            <li><a href="https://www.isro.gov.in/Chandrayaan1.html" target="_blank" rel="noopener">Chandrayaan-1</a></li>
+            <li><a href="https://www.isro.gov.in/mars-orbiter-mission" target="_blank" rel="noopener">Mangalyaan</a></li>
+            <li><a href="https://www.isro.gov.in/chandrayaan2-home-0" target="_blank" rel="noopener">Chandrayaan-2</a></li>
+            <li><a href="https://www.isro.gov.in/Aditya_L1.html" target="_blank" rel="noopener">Aditya-L1</a></li>
+            <li><a href="https://www.isro.gov.in/Gaganyaan.html" target="_blank" rel="noopener">Gaganyaan</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h3 class="footer-heading">Resources</h3>
+          <ul role="list">
+            <li><a href="https://www.isro.gov.in" target="_blank" rel="noopener">ISRO Official</a></li>
+            <li><a href="https://www.isro.gov.in/gallery" target="_blank" rel="noopener">ISRO Gallery</a></li>
+            <li><a href="https://www.youtube.com/@ISROofficial" target="_blank" rel="noopener">ISRO YouTube</a></li>
+            <li><a href="https://www.isro.gov.in/ISRO_Highlights.html" target="_blank" rel="noopener">Highlights</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 Indian Space Explorer. An unofficial tribute to ISRO. All mission data sourced from <a href="https://www.isro.gov.in" target="_blank" rel="noopener">isro.gov.in</a>.</p>
+        <p class="footer-made">Made with ❤️ for India's space scientists</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true">
+    <span class="toast-icon" id="toastIcon"></span>
+    <span class="toast-message" id="toastMessage"></span>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setupNavbar();
+      window.AuthHelper?.updateAuthNav();
+      setupContactForm();
+    });
+
+    function setupContactForm() {
+      const form = document.getElementById('contactForm');
+      const submitBtn = document.getElementById('submitBtn');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        // Validation
+        if (!name || !email || !subject || !message) {
+          showError('Please fill all fields');
+          return;
+        }
+
+        if (message.length < 10) {
+          showError('Message must be at least 10 characters');
+          return;
+        }
+
+        // Show loading
+        submitBtn.disabled = true;
+        submitBtn.querySelector('.btn-text').style.display = 'none';
+        submitBtn.querySelector('.btn-loader').style.display = 'inline';
+
+        try {
+          const result = await window.SpaceAPI.submitContact({ name, email, subject, message });
+
+          if (result.success) {
+            showSuccess('Message sent successfully!');
+            form.reset();
+          } else {
+            showError(result.message || 'Failed to send message');
+          }
+        } catch (error) {
+          console.error('Contact form error:', error);
+          showError(error.message || 'Network error. Please try again.');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.querySelector('.btn-text').style.display = 'inline';
+          submitBtn.querySelector('.btn-loader').style.display = 'none';
+        }
+      });
+    }
+
+    function showError(message) {
+      const toast = document.getElementById('toast');
+      const icon = document.getElementById('toastIcon');
+      const msg = document.getElementById('toastMessage');
+      
+      icon.className = 'toast-icon fa-solid fa-exclamation-circle';
+      icon.style.color = '#ef4444';
+      msg.textContent = message;
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    function showSuccess(message) {
+      const toast = document.getElementById('toast');
+      const icon = document.getElementById('toastIcon');
+      const msg = document.getElementById('toastMessage');
+      
+      icon.className = 'toast-icon fa-solid fa-check-circle';
+      icon.style.color = '#10b981';
+      msg.textContent = message;
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    function setupNavbar() {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('nav')) {
+          navLinks.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', false);
+        }
+      });
+
+      window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+      });
+    }
+
+  </script>
+</body>
+</html>

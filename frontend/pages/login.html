@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Login to Indian Space Explorer to access exclusive content." />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Login — Indian Space Explorer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../css/styles.css" />
+
+  <style>
+    .login-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(26, 31, 58, 0.95));
+      padding: 60px 20px 20px;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .login-box {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(14, 165, 233, 0.1));
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 12px;
+      padding: 40px;
+      backdrop-filter: blur(10px);
+    }
+
+    .login-box h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #e2e8f0;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .login-box > p {
+      text-align: center;
+      color: #cbd5e1;
+      margin-bottom: 30px;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      color: #e2e8f0;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .form-group input {
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 8px;
+      color: #e2e8f0;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .form-error {
+      color: #ef4444;
+      font-size: 0.85rem;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .form-error.show {
+      display: block;
+    }
+
+    .btn-full {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-full:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .btn-loader {
+      display: none;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .form-footer p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .form-footer a {
+      color: #0ea5e9;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .form-footer a:hover {
+      color: #6366f1;
+    }
+
+    .error-box {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid #ef4444;
+      color: #fca5a5;
+      padding: 12px;
+      border-radius: 6px;
+      text-align: center;
+      display: none;
+      margin-bottom: 15px;
+    }
+
+    .error-box.show {
+      display: block;
+    }
+
+    .success-box {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid #10b981;
+      color: #86efac;
+      padding: 12px;
+      border-radius: 6px;
+      text-align: center;
+      display: none;
+      margin-bottom: 15px;
+    }
+
+    .success-box.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════ NAVBAR ══ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a class="nav-logo" href="../index.html" aria-label="Indian Space Explorer home">
+        <span class="logo-icon">🚀</span>
+        <span class="logo-text">IndiaSpace</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="missions.html" class="nav-link">Missions</a></li>
+        <li><a href="photos.html" class="nav-link">Photos</a></li>
+        <li><a href="videos.html" class="nav-link">Videos</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="login.html" class="nav-link active auth-link">Login</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════ LOGIN ════ -->
+  <section class="login-section" aria-labelledby="login-heading">
+    <div class="login-container">
+      <div class="login-box">
+        <h1 id="login-heading">Login</h1>
+        <p>Access your ISRO Explorer account</p>
+
+        <div id="errorBox" class="error-box" role="alert"></div>
+        <div id="successBox" class="success-box" role="status"></div>
+
+        <form id="loginForm" class="login-form" novalidate>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="you@example.com"
+              required 
+              autocomplete="email"
+            />
+            <span class="form-error" id="emailError" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              placeholder="••••••••"
+              required 
+              autocomplete="current-password"
+            />
+            <span class="form-error" id="passwordError" role="alert"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+            <span class="btn-text">Sign In</span>
+            <i class="btn-loader fa-solid fa-spinner"></i>
+          </button>
+        </form>
+
+        <div class="form-footer">
+          <p>Don't have an account? <a href="register.html">Create one</a></p>
+          <p><a href="#">Forgot your password?</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ FOOTER ════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-logo" href="../index.html">
+            <span class="logo-icon">🚀</span>
+            <span class="logo-text">IndiaSpace</span>
+          </a>
+          <p class="footer-tagline">
+            Celebrating India's journey among the stars.
+          </p>
+          <div class="social-links" aria-label="Social media links">
+            <a href="https://twitter.com/isro" target="_blank" rel="noopener" aria-label="ISRO on Twitter" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.youtube.com/@ISROofficial" target="_blank" rel="noopener" aria-label="ISRO on YouTube" class="social-link"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul role="list">
+            <li><a href="missions.html">Missions</a></li>
+            <li><a href="about.html">About ISRO</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h3 class="footer-heading">Resources</h3>
+          <ul role="list">
+            <li><a href="https://www.isro.gov.in" target="_blank" rel="noopener">ISRO Official</a></li>
+            <li><a href="https://www.youtube.com/@ISROofficial" target="_blank" rel="noopener">ISRO YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 Indian Space Explorer. An unofficial tribute to ISRO.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setupNavbar();
+      if (window.AuthHelper?.isLoggedIn()) {
+        window.location.href = '../index.html';
+      }
+      setupLoginForm();
+    });
+
+    function setupLoginForm() {
+      const form = document.getElementById('loginForm');
+      const submitBtn = document.getElementById('submitBtn');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+
+        // Clear errors
+        clearErrors();
+
+        // Validation
+        if (!email || !password) {
+          showError('Please fill all fields');
+          return;
+        }
+
+        if (!isValidEmail(email)) {
+          showError('Please enter a valid email');
+          return;
+        }
+
+        // Show loading
+        submitBtn.disabled = true;
+        submitBtn.querySelector('.btn-text').textContent = 'Signing in...';
+        submitBtn.querySelector('.btn-loader').style.display = 'inline-block';
+
+        try {
+          const result = await window.SpaceAPI.login(email, password);
+
+          // Show success
+          showSuccess('Login successful! Redirecting...');
+
+          // Redirect after 1.5 seconds
+          setTimeout(() => {
+            window.location.href = '../index.html';
+          }, 1500);
+
+        } catch (error) {
+          console.error('Login error:', error);
+          showError(error.message || 'Network error. Please try again.');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.querySelector('.btn-text').textContent = 'Sign In';
+          submitBtn.querySelector('.btn-loader').style.display = 'none';
+        }
+      });
+    }
+
+    function clearErrors() {
+      document.querySelectorAll('.form-error').forEach(el => {
+        el.textContent = '';
+        el.classList.remove('show');
+      });
+      document.getElementById('errorBox').classList.remove('show');
+    }
+
+    function showError(message) {
+      const errorBox = document.getElementById('errorBox');
+      errorBox.textContent = message;
+      errorBox.classList.add('show');
+    }
+
+    function showSuccess(message) {
+      const successBox = document.getElementById('successBox');
+      successBox.textContent = message;
+      successBox.classList.add('show');
+    }
+
+    function isValidEmail(email) {
+      const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      return regex.test(email);
+    }
+
+    function setupNavbar() {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('nav')) {
+          navLinks.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', false);
+        }
+      });
+
+      window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+      });
+    }
+  </script>
+</body>
+</html>

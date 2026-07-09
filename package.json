@@ -1,0 +1,25 @@
+{
+  "name": "indian-space-explorer",
+  "version": "1.0.0",
+  "description": "A professional web platform showcasing India's space exploration journey with ISRO missions, space photography, and mission videos",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "seed": "node backend/seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": ["ISRO", "space", "India", "missions"],
+  "author": "Indian Space Explorer",
+  "license": "MIT"
+}
